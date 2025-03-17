@@ -1,23 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-// Define the root reducer with any slices you need
+// Define the root reducer
 const rootReducer = {
-  // Example: 
-  // auth: authReducer,
-  // data: dataReducer,
-  // You'll add actual reducers here as you develop your app
+  // Add actual reducers here as your app grows
 };
 
-// Create the store
+// Create the store properly
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: rootReducer
 });
 
-// Export the root state and dispatch types
+// Export types
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-// Add this function to properly handle preloadedState for tests
+// For testing
 export const setupStore = (preloadedState?: Partial<RootState>) => {
   return configureStore({
     reducer: rootReducer,
